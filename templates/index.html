@@ -27,21 +27,10 @@
         <br>
         <button type="submit">Submit</button>
     </form>
+
+    <div id="dataDisplay">
+        {% if received_data %}
+            <p>{{ received_data }}</p>
+        {% endif %}
+    </div>
 {% endblock %}
-
-
-
-<!-- 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Health Tracker</title>
-</head>
-<body>
-    <h2>Welcome to Health Tracker</h2>
-    <p>Monitor your children health based on WHO provided public data!</p>
-    
-</body>
-</html> -->
