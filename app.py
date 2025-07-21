@@ -1,7 +1,9 @@
 # Using Python as Backend file for establishing connection between MySQL and website.
 
+from markupsafe import Markup #For html tags in return message
 from flask import Flask, render_template, request, redirect, url_for
 import mysql.connector
+import datetime
 
 app = Flask(__name__)
 
@@ -28,19 +30,9 @@ def index():
         user_height = request.form.get('height')
         user_weight = request.form.get('weight')
 
-        errors = []
-        if not user_age or not user_height or not user_weight:
-            errors.append("All fields are required.")
+        received_data=f"Received data: Age={user_age}, Weight={user_weight}, Height={user_height} <br> This is new text for sample github conn between github and local system."
 
-        if errors:
-            print("Validation errors:", errors)
-            flash("Please correct the errors in the form.", 'error')
-            #return render_template('index.html', flash_message=flash_message, errors=errors)
-        
-
-        received_data=f"Received data: Age={user_age}, Weight={user_weight}, Height={user_height}"
-        
-        return render_template('index.html', received_data=received_data, errors=errors)
+        return render_template('index.html', received_data=received_data)
     else:
         # render index.html
         return render_template('index.html')

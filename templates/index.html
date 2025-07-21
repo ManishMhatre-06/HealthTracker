@@ -30,7 +30,7 @@
 
     <div id="dataDisplay">
         {% if received_data %}
-            <p>{{ received_data }}</p>
+            <p>{{ received_data | safe }}</p>
         {% endif %}
     </div>
 {% endblock %}
